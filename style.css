@@ -1,0 +1,13 @@
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 15px;
+}
+
+html {
+  font-family: monospace;
+  font-size: 20px;
+  background-color: #14171A;
+  color: #9DA2A5;
+}
