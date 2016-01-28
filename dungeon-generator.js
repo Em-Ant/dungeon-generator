@@ -31,12 +31,16 @@ var DungeonGenerator = (function(){
   var MAXSIZE, MINSIZE, ROWS, COLS, BORDER, ATTEMPTS, WALL, EMPTY, ROOMS
 
   function isNotOverlapping(floorMap, room) {
+    var status = true;
     for (var i = room.row - 1; i < room.row + room.h + 1  ; i++ ) {
       for (var j = room.col-1; j < room.col + room.w +1; j++) {
-        if (floorMap[i][j] !== WALL) return false;
+        if (floorMap[i][j] !== WALL) {
+            status = false;
+            break;
+        }
       }
     }
-    return true;
+    return status;
   }
 
   function linkStraightH(floorMap, r1, r2){
@@ -107,6 +111,7 @@ var DungeonGenerator = (function(){
   }
 
   function addRoom(floorMap) {
+    var out = undefined;
     var h = Math.floor(Math.random()*(MAXSIZE - MINSIZE + 1)) + MINSIZE;
     var w = Math.floor(Math.random()*(MAXSIZE - MINSIZE + 1)) + MINSIZE;
     var room = {
@@ -121,8 +126,9 @@ var DungeonGenerator = (function(){
           floorMap[i][j] = EMPTY;
         }
       }
-      return room;
-    } else return false;
+      out = room;
+    }
+    return out;
   };
 
   var DungeonGenerator = {
