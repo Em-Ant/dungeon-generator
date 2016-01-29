@@ -1,13 +1,45 @@
-
-p {
-  margin: 0;
-  padding: 0;
-  line-height: 15px;
-}
-
 html {
   font-family: monospace;
   font-size: 20px;
   background-color: #14171A;
   color: #9DA2A5;
+}
+
+
+p {
+  margin: 0;
+  padding: 0;
+  line-height: 15px;
+  text-align: center;
+}
+
+#title {
+  padding-top: 15px;
+}
+
+#view {
+  padding-top: 30px;
+}
+
+#generate {
+  text-align: center;
+  width : 100px;
+  position: relative;
+
+  margin: 20px auto;
+  border: 1px solid #9DA2A5;
+  border-radius: 8px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#generate:hover {
+  background-color: #9DA2A5;
+  color: #14171A;
+}
+
+#generate:active {
+  background-color: #f6f6f6;
+  color: #14171A;
 }

@@ -1,18 +1,6 @@
 
-var floorMap = DungeonGenerator.generate({
-  maxRoomSize:5,
-  minRoomSize:5,
-  rooms: 22,
-  empty: '\u00a0',
-  rows: 40,
-  cols: 60
-});
 
 var el = document.getElementById('view');
-floorMap.forEach(function(e){
-  var txt = e.join('');
-  append(el,txt);
-})
 
 function append(el, text) {
   var p = document.createElement('p');
@@ -20,3 +8,32 @@ function append(el, text) {
   p.appendChild(t);
   el.appendChild(p);
 }
+
+function updateMap(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
+  var floorMap = DungeonGenerator.generate({
+    maxRoomSize: 7,
+    minRoomSize: 7,
+    empty: '\u00a0',
+    padding: 2,
+    rooms: 25,
+    rows: 41,
+    cols: 61
+  });
+
+  floorMap.forEach(function(e){
+    var txt = e.map(function(cell){
+      return cell.char})
+      .join('');
+    append(el,txt);
+    }
+  )
+};
+
+document.getElementById('generate').addEventListener('click',function(){
+  updateMap(el);
+})
+
+updateMap(el);
