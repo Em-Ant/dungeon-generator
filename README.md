@@ -1,5 +1,6 @@
 
-# DUNGEON MAP GENERATOR v0.1 by EmAnt - 2016
+# DUNGEON MAP GENERATOR
+### v0.1
 
 **!! WARNING: Development version.**
 **No input data validation included.**
