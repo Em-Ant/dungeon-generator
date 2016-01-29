@@ -1,15 +1,13 @@
 
 # DUNGEON MAP GENERATOR v0.1 by EmAnt - 2016
 
-** !! WARNING: **
-**   Development version. **
-**   NO INPUT DATA VALIDATION INCLUDED. **
+**!! WARNING: Development version.**
+**No input data validation included.**
 ---
 
 ### Description
 
-It adds a Global Object 'DungeonGenerator', which has a
-function memeber 'generate'.
+It adds a Global Object `DungeonGenerator`, which has a function memeber `generate`.
 
 ### Usage:
 
@@ -20,14 +18,18 @@ Include it in your `index.html` scripts :
 <script type="text/javascript" src="./js/dungeon-generator.js"></script>
 ...
 ```
----
+then generate a map :
 ```JS
-{Array[Array[{Object} Cell]]} floorMap =
-   DungeonGenerator.generate({Object} Config);
+floorMap = DungeonGenerator.generate(config);
+```
 
- @param {Object} Config - configuration object
+```
+{Array[Array[{Object} cell]]} floorMap =
+   DungeonGenerator.generate({Object} config);
 
- Config = {
+ @param {Object} config - configuration object
+
+ config = {
    rows: default 31 - better if odd,
    cols: default 51 - better if odd,
    minRoomSize: default 3 - odd only,
@@ -39,9 +41,9 @@ Include it in your `index.html` scripts :
    maxAttempts: max attempts placing rooms - default 500
  }
 
- @return {Array[Array[{Object} Cell]]} - Matrix of cell objects
+ @return {Array[Array[{Object} cell]]} - Matrix of cell objects
 
- Cell = {
+ cell = {
    char : cell character,
    row : cell row position,
    col : cell column position
