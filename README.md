@@ -49,3 +49,5 @@ floorMap = DungeonGenerator.generate(config);
    col : cell column position
  }
  ```
+
+Test it live on my [Codepen](http://codepen.io/Em-Ant/pen/jWxVGK).
