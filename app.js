@@ -16,7 +16,6 @@ function updateMap(el) {
   var floorMap = DungeonGenerator.generate({
     maxRoomSize: 7,
     minRoomSize: 7,
-    empty: '\u00a0',
     padding: 2,
     rooms: 25,
     rows: 41,
@@ -25,7 +24,7 @@ function updateMap(el) {
 
   floorMap.forEach(function(e){
     var txt = e.map(function(cell){
-      return cell.char})
+      return cell.type === 'wall' ? 'x' : '\u00a0'})
       .join('');
     append(el,txt);
     }

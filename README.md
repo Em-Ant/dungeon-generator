@@ -36,8 +36,6 @@ floorMap = DungeonGenerator.generate(config);
    minRoomSize: default 3 - odd only,
    maxRoomSize: default 7 - odd only,
    padding: map padding - default 2,
-   wall : symbol for wall - default 'x',
-   empty: symbol for empty - default '.',
    rooms: expected rooms - default 15
    maxAttempts: max attempts placing rooms - default 500
  }
@@ -45,9 +43,7 @@ floorMap = DungeonGenerator.generate(config);
  @return {Array[Array[{Object} cell]]} - Matrix of cell objects
 
  cell = {
-   char : cell character,
-   row : cell row position,
-   col : cell column position
+   type : 'wall' or 'empty',
  }
  ```
 

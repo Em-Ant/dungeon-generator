@@ -23,8 +23,6 @@
 *   minRoomSize: default 3 - odd only,
 *   maxRoomSize: default 7 - odd only,
 *   padding: map padding - default 2,
-*   wall : symbol for wall - default 'x',
-*   empty: symbol for empty - default '.',
 *   rooms: expected rooms - default 15
 *   maxAttempts: max attempts placing rooms - default 500
 * }
@@ -32,16 +30,14 @@
 * @return {Array[Array[{Object} Cell]]} - Matrix of cell objects
 *
 * Cell = {
-*   char : cell character,
-*   row : cell row position,
-*   col : cell column position
+*   type : 'wall' or 'empty',
 * }
 */
 
 var DungeonGenerator = (function(){
 
   var MAXSIZE, MINSIZE, ROWS, COLS, BORDER,
-      ATTEMPTS, WALL, EMPTY, ROOMS;
+      ATTEMPTS, WALL='W', EMPTY='E', ROOMS;
 
   function isNotOverlapping(floorMap, room) {
     var status = true;
@@ -162,8 +158,6 @@ var DungeonGenerator = (function(){
       MAXSIZE = cfg.maxRoomSize || 7;
       MINSIZE= cfg.minRoomSize || 3;
       BORDER = cfg.padding || 2;
-      WALL = cfg.wall || 'x';
-      EMPTY = cfg.empty || '.';
       ATTEMPTS = cfg.maxAttempts || 500;
       ROOMS = cfg.rooms || 15;
 
@@ -208,7 +202,7 @@ var DungeonGenerator = (function(){
       }
       return floorMap.map(function(row,i){
         return row.map(function(cell, j){
-          return {char: cell, row: i, col: j};
+          return {type: cell === WALL ? 'wall' : 'empty'};
         })
       })
     }
