@@ -30,7 +30,7 @@
 * @return {Array[Array[{Object} Cell]]} - Matrix of cell objects
 *
 * Cell = {
-*   type : 'wall' or 'empty',
+*   cellType : 'wall' or 'empty',
 * }
 */
 
@@ -202,7 +202,7 @@ var DungeonGenerator = (function(){
       }
       return floorMap.map(function(row,i){
         return row.map(function(cell, j){
-          return {type: cell === WALL ? 'wall' : 'empty'};
+          return {cellType: cell === WALL ? 'wall' : 'empty'};
         })
       })
     }
