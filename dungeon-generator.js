@@ -190,7 +190,7 @@ var DungeonGenerator = (function(){
 
       roomsLinked.push(roomsToLink.pop());
       while(roomsToLink.length) {
-        var r1 = roomsLinked[Math.floor(Math.random()*roomsLinked.length)];
+        var r1 = roomsLinked[roomsLinked.length - 1];
         var r2 = roomsToLink.sort(function (a,b){
           if (distance(r1,a) < distance(r1,b)) return 1;
           if (distance(r1,a) > distance(r1,b)) return -1;
